@@ -7,10 +7,15 @@ class Data:
     def __init__(self):
         print('Reading from the csv-file..')
         t1 = time.time()
+        # self.df = pd.read_csv(r'C:\Users\menes\Downloads\data.tsv', sep='\t',
+        #                       dtype={'tconst': 'string', 'titleType': 'string', 'primaryTitle': 'string',
+        #                              'originalTitle': 'string', 'startYear': 'string'},
+        #                       usecols=['tconst', 'titleType', 'primaryTitle', 'originalTitle', 'startYear',
+        #                                'genres'])
         self.df = pd.read_csv(r'C:\Users\menes\Downloads\data.tsv', sep='\t',
-                              dtype={'tconst': 'string', 'titleType': 'string', 'primaryTitle': 'string',
+                              dtype={'tconst': 'string',
                                      'originalTitle': 'string', 'startYear': 'string'},
-                              usecols=['tconst', 'titleType', 'primaryTitle', 'originalTitle', 'startYear',
+                              usecols=['tconst', 'originalTitle', 'startYear',
                                        'genres'])
         t2 = time.time()
         print('reading time is: ', t2 - t1, '\n')
