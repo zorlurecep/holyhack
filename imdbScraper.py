@@ -6,31 +6,37 @@ def get_page_content(movie_id):
     return requests.get("https://www.imdb.com/title/" + movie_id + "/keywords").content
 
 
-def scrape_page_content(movie_name, page_content, movie_keyword, keyword_movie):
+def get_keywords_from_id(movie_id):
+    """
+    :param movie_id: (string) legal movie id
+    :return: set of tags
+    """
+    page_content = requests.get("https://www.imdb.com/title/" + movie_id + "/keywords").content
     soup = BeautifulSoup(page_content, 'html.parser')
     all_tags = soup.find_all("div", {"class": "sodatext"})
 
-    return add_to_movie_keyword_dictionary(movie_name, all_tags, movie_keyword, keyword_movie)
-
-
-def add_to_movie_keyword_dictionary(movie_name, all_tags, movie_keyword, keyword_movie):
-    if movie_name not in movie_keyword:
-        movie_keyword[movie_name] = []
-
+    keywords = set()
     for tag in all_tags:
         current_keyword = tag.text.strip("\n")
-        if current_keyword not in movie_keyword[movie_name]:
-            movie_keyword[movie_name].append(current_keyword)
-            keyword_movie = add_to_keyword_movie_dictionary(movie_name, current_keyword, keyword_movie)
+        keywords.add(current_keyword)
+    return keywords
 
-    return movie_keyword, keyword_movie
+    # return add_to_movie_to_keyword_dictionary(movie_name, all_tags, movie_to_keyword, keyword_to_movie)
 
 
-def add_to_keyword_movie_dictionary(movie_name, current_keyword, keyword_movie):
-    if current_keyword not in keyword_movie:
-        keyword_movie[current_keyword] = []
+# def add_to_movie_to_keyword_dictionary(movie_name, all_tags, keywords):
+#     for tag in all_tags:
+#         current_keyword = tag.text.strip("\n")
+#         keywords[movie_name].add(current_keyword)
+#
+#     return keywords
 
-    if movie_name not in keyword_movie[current_keyword]:
-        keyword_movie[current_keyword].append(movie_name)
 
-    return keyword_movie
+# def add_to_keyword_to_movie_dictionary(movie_name, keyword, keyword_to_movie):
+#     if keyword not in keyword_to_movie:
+#         keyword_to_movie[keyword] = set()
+#
+#     keyword_to_movie[keyword].add(movie_name)
+#
+#     # return keyword_to_movie
+

@@ -5,7 +5,7 @@ import time
 class Data:
 
     def __init__(self):
-        # self.df = self.init_data_frame(r'data.tsv')
+        print('Reading from the csv-file..')
         t1 = time.time()
         self.df = pd.read_csv(r'C:\Users\menes\Downloads\data.tsv', sep='\t',
                               dtype={'tconst': 'string', 'titleType': 'string', 'primaryTitle': 'string',
@@ -13,7 +13,7 @@ class Data:
                               usecols=['tconst', 'titleType', 'primaryTitle', 'originalTitle', 'startYear',
                                        'genres'])
         t2 = time.time()
-        print('reading time is: ', t2 - t1)
+        print('reading time is: ', t2 - t1, '\n')
 
     def title_to_id(self, title):
         """
@@ -23,6 +23,12 @@ class Data:
         rows_with_title = self.df[self.df.originalTitle == title]
         return set(rows_with_title.tconst)
 
+    def get_extended_names(self):
+        print('\nZipping the titles and the years..')
+        t1 = time.time()
+        zipped = zip(self.df.originalTitle, self.df.startYear)
+        print('zipping took: ', time.time() - t1)
+        return zipped
 
-data = Data()
-print(data.title_to_id('The Godfather'))
+# data = Data()
+# print(data.title_to_id('The Godfather'))
