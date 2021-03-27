@@ -20,6 +20,7 @@ def search_by_name(data, movie_name):
 
 
 if __name__ == "__main__":
+    #get_movies_form_keyword("crime-family")
     t1 = time.time()
     data = Data()
 
