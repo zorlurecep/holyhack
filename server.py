@@ -45,8 +45,10 @@ def search_by_name(data, movie_name, content_type, year):
 
 @eel.expose
 def search(movie_name, keyword, content_type, year):
-    year = None
-    content_type = 'movie'
+    # year = None
+    # content_type = 'movie'
+    movie_name = movie_name.upper()
+    content_type = content_type.upper()
     if keyword is None:
         print(movie_name, keyword, content_type, year)
         tags = search_by_name(data, movie_name, content_type, year)

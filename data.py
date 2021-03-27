@@ -12,6 +12,8 @@ class Data:
                                      'originalTitle': 'string', 'startYear': 'string'},
                               usecols=['tconst', 'titleType', 'primaryTitle', 'originalTitle', 'startYear',
                                        'genres'])
+        self.df.originalTitle = self.df.originalTitle.str.upper()
+        self.df.titleType = self.df.titleType.str.upper()
         # self.df = pd.read_csv(r'data.tsv', sep='\t',
         #                       dtype={'tconst': 'string',
         #                              'originalTitle': 'string', 'startYear': 'string'},
