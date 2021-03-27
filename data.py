@@ -12,7 +12,7 @@ class Data:
         #                              'originalTitle': 'string', 'startYear': 'string'},
         #                       usecols=['tconst', 'titleType', 'primaryTitle', 'originalTitle', 'startYear',
         #                                'genres'])
-        self.df = pd.read_csv(r'C:\Users\menes\Downloads\data.tsv', sep='\t',
+        self.df = pd.read_csv(r'data.tsv', sep='\t',
                               dtype={'tconst': 'string',
                                      'originalTitle': 'string', 'startYear': 'string'},
                               usecols=['tconst', 'originalTitle', 'startYear',

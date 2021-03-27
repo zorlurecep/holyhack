@@ -47,7 +47,9 @@ def search(movieName, keywordName, contentType, year):
     if keywordName is None:
         print(movieName, keywordName, contentType, year)
         tags = search_by_name(data, movieName)
+
         print("\nTags related to " + movieName + " are: \n", tags)
+        return tags
 
 
 if __name__ == "__main__":
