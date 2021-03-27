@@ -90,7 +90,7 @@ if __name__ == "__main__":
     # print("----------------------------------")
     # print_keyword_to_movie(50, keyword_to_movie)
 
-    movie_name = "Sungurlar"
+    movie_name = "The Godfather"
     tags_of_movie = search_by_name(data, movie_name)
     print(tags_of_movie)
 
