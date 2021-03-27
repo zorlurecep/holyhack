@@ -16,8 +16,10 @@ function search() {
 }
 
 //
-function callBackSearch(result){
-    console.log("result");
+function callBackSearch(result) {
+    for (var i = 0; i < result.length; i++) {
+        document.getElementById("result").value += result[i];
+    }
 }
 
 function getYears() {
