@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Page</title>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="myscript.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<table>
+    <tr>
+        <td><label for="movieName" id="movieNameLabel" style='visibility:visible;'>Please enter a movie name to
+            search</label><textarea style='visibility:visible;' id="movieName"></textarea></td>
+        <td><label for="isKeyWord">Are you searching for tags?</label><input type="checkbox" id="isKeyWord"
+                                                                             name="isKeyWord"
+                                                                             value="true"></td>
+        <td><label for="keyWord" id="keyWordLabel" style='visibility:hidden;'>Please enter a keyword to
+            search</label><textarea
+                style='visibility:hidden;' id="keyWord"></textarea></td>
+    </tr>
+    <tr>
+        <td><label> Please select a type of content
+            <select name="dropdown" id="contentType">
+                <option value="tvEpisode"> TV Episode</option>
+                <option value="movie">Movie</option>
+                <option value="audiobook">Audio Book</option>
+                <option value="short">Short</option>
+                <option value="tvSeries">TV Series</option>
+                <option value="tvSpecial">TV Special</option>
+                <option value="video">Video</option>
+                <option value="episode">Episode</option>
+                <option value="videoGame">Video Game</option>
+                <option value="tvMiniSeries">TV Mini Series</option>
+                <option value="tvShort">TV Short</option>
+                <option value="radioSeries">Radio Series</option>
+                <option value="tvMovie">TV Movie</option>
+            </select>
+        </label></td>
+        <td><label for="year">Please select the year the content published</label><select id="year"
+                                                                                          name="year"></select></td>
+        <td>
+            <button type="button" id="search" onclick="search()">Search</button>
+        </td>
+    </tr>
+</table>
+
+<script>getYears()</script>
+<script>document.getElementById("isKeyWord").onclick = function () {
+    var keyword = document.getElementById("keyWord");
+    keyword.style.visibility === "hidden" ? keyword.style.visibility = "visible" : keyword.style.visibility = "hidden";
+
+    var label = document.getElementById("keyWordLabel");
+    label.style.visibility === "hidden" ? label.style.visibility = "visible" : label.style.visibility = "hidden";
+
+    var movie = document.getElementById("movieName");
+    movie.style.visibility === "visible" ? movie.style.visibility = "hidden" : movie.style.visibility = "visible";
+
+    var label2 = document.getElementById("movieNameLabel");
+    label2.style.visibility === "visible" ? label2.style.visibility = "hidden" : label2.style.visibility = "visible";
+}</script>
+</body>
+</html>
