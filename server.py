@@ -28,8 +28,8 @@ def search_by_name(data, movie_name):
     tags = set()
     i = 1
     for movie_id in movie_ids:
-        # if i > 5:
-        #     break
+        if i > 15:
+            break
         print(str(i) + 'th reference to', movie_name)
         i += 1
         tags.update(imdb_scraper.get_keywords_from_id(movie_id))
